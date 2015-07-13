@@ -1,0 +1,58 @@
+﻿@using System.Web.Optimization
+@model CandidateUploader.ViewModel.UploadViewModel
+
+@{
+    ViewBag.Title = "Upload";
+
+    var contestAttrs = new RouteValueDictionary
+    {
+        { "ng-model", "data.contest" },
+        { "class", "form-control" },
+        { "required", true }
+    };
+
+}
+
+<link href="~/Content/tag-basic-style.css" rel="stylesheet">
+
+<div ng-app="uploadApp">
+
+    <h2>Upload</h2>
+
+    <form name="uploadForm" ng-controller="UploadCtrl" ng-submit="uploadForm.$valid && files.length && uploadFiles()" ng-init="maxImageByte = @Model.MaxImageBytes" novalidate>
+        <div class="form-group">
+            <label for="title">Titolo:</label>
+            <input id="title" type="text" maxlength="100" ng-model="data.title" required />
+        </div>
+        <div class="form-group">
+            <label for="author">Autore:</label>
+            <input type="text" ng-model="data.author" id="author" required />
+        </div>
+        <div class="form-group">
+            <label for="email">E-mail:</label>
+            <input type="email" ng-model="data.email" id="email" required />
+        </div>
+        <div class="form-group">
+            <label for="location">Locazione:</label>
+            <input type="text" ng-model="data.location" id="location" required />
+        </div>
+        <div class="form-group">Tags liberi: <div tag-directive data-tags-input-name="tag" id="freeTagsBox"></div></div>
+        <div class="form-group">
+            @Html.DropDownListFor(m => m.SelectedContest, Model.Contests, contestAttrs)
+        </div>
+        <input class="btn btn-default" type="file" ng-file-select="onFileSelect($files)" multiple />
+        <input type="submit" class="btn btn-default" value="Carica" />
+        <div ng-show="upload.length > 0">{{percentage}}%</div>
+        <div ng-show="success">Caricamento completato!</div>
+        <div ng-show="process">Attendere, elaborazione in corso!</div>
+        <div ng-show="error.length">{{error}}</div>
+    </form>
+
+    @Scripts.Render("~/bundles/angularfileuploadshim")
+    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/angularfileupload")
+
+    <script src="~/Scripts/tagging.min.js"></script>
+    <script src="~/Scripts/Local/UploadApp.js"></script>
+
+</div>

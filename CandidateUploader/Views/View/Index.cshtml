@@ -1,0 +1,36 @@
+﻿@using System.Web.Optimization
+
+@{
+    ViewBag.Title = "View";
+}
+
+
+<div ng-app="viewApp">
+
+    <h2>Visualizza candidature</h2>
+    
+    <div ng-controller="viewController">
+
+        <div ng-show="items.length">
+            Ordinamento:
+            <select ng-change="order()" ng-model="selectedOrder">
+                <option value="Title">Titolo</option>
+                <option value="Author">Autore</option>
+                <option value="Email">Email</option>
+                <option value="Location">Locazione</option>
+                <option value="Created">Data creazione</option>
+            </select>
+        </div>
+
+        <ul>
+            <cu-template-item></cu-template-item>
+        </ul>
+
+    </div>
+
+</div>
+
+
+@Scripts.Render("~/bundles/angular")
+
+<script src="~/Scripts/Local/ViewApp.js"></script>

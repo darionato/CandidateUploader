@@ -1,0 +1,12 @@
+syntax:glob
+*.suo
+CandidateUploader/{bin,obj,Uploads}
+.sass-cache
+packages/*
+*.pyc
+*.zip
+*.sdf
+*.user
+*.log
+*.log.*
+*.orig

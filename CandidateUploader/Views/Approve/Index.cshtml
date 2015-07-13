@@ -1,0 +1,28 @@
+﻿@using System.Web.Optimization
+
+@{
+    ViewBag.Title = "Approva";
+}
+
+
+<div ng-app="approveApp">
+
+    <h2>Approva</h2>
+
+    <ul ng-controller="approveController as approve">
+        <li ng-repeat="item in items">
+            Titolo: {{item.Title}}<br />
+            Authore: {{item.Author}}<br />
+            E-mail: {{item.Email}}<br />
+            Tag liberi: {{item.FreeTags}}<br />
+            <button ng-hide="isApproving" ng-click="approveClick(item.Id, $index)">Approva</button>
+        </li>
+    </ul>
+
+
+</div>
+
+@Scripts.Render("~/bundles/angular")
+
+<script src="~/Scripts/Local/ApproveApp.js"></script>
+

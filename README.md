@@ -1,6 +1,6 @@
 # README #
 
-Il progetto è ancora un pò grezzo, dovrei fare un pò di refactoring. E' la prima volta che uso Angularjs, quindi penso che potrei sfruttare molte altre funzionalità. Qui sotto ci sono i vari dettaggli per il primo avvio.
+Progetto di test per provare AngularJs con ASP.NET Mvc.
 
 ### Configurazione iniziale ###
 
@@ -9,7 +9,7 @@ Il progetto è ancora un pò grezzo, dovrei fare un pò di refactoring. E' la pr
 * Aprire il Package Manager Console ed eseguire il comando: update-database
 * Avviare il progetto
 
-### Cosa ho fatto? ###
+### Caratteristiche ###
 
 * Pagina di upload
 * Limite di 1000000 uploads configurabile sul web.config
@@ -21,7 +21,8 @@ Il progetto è ancora un pò grezzo, dovrei fare un pò di refactoring. E' la pr
 * Pagina di approvazione
 * Pagina di visualizzazione elaborati con orinamento personalizzato
 
-### Altre informazioni ###
+### Implementazioni mancanti ###
 
 * La grafica non è stata curata
 * Non ci sono i loader nelle chiamate AJAX
+* Refactoring generale
